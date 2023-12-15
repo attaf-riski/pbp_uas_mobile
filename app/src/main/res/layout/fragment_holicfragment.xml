@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.holic.Holicfragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/textViewArtGallery"
+                style="@style/Text.Title"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:text="Cabang Warmindo"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.5" />
+
+            <ImageView
+                android:id="@+id/imageBurjoHolic"
+                android:layout_width="375dp"
+                android:layout_height="232dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/warmindotaf"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewArtGallery" />
+
+            <TextView
+                android:id="@+id/textBurjoHolic"
+                style="@style/Text.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:paddingHorizontal="6dp"
+                android:text="Burjo Holic 6"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/imageBurjoHolic"
+                app:layout_constraintTop_toBottomOf="@+id/imageBurjoHolic" />
+
+            <!-- Harga -->
+            <TextView
+                android:id="@+id/textViewAlamat"
+                style="@style/Text.Body.SemiBold"
+                android:textSize="14dp"
+                android:paddingHorizontal="10dp"
+                android:layout_width="320dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Jl. Mulawarman Raya No.54a, Kramas"
+                app:layout_constraintStart_toStartOf="@+id/textBurjoHolic"
+                app:layout_constraintTop_toBottomOf="@+id/textBurjoHolic" />
+
+            <!--Rating-->
+
+            <TextView
+                android:id="@+id/textViewPekerja"
+                style="@style/Text.Body.SemiBold"
+                android:textSize="14dp"
+                android:paddingHorizontal="10dp"
+                android:layout_width="320dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Jumlah Pekerja : 10"
+                app:layout_constraintStart_toStartOf="@+id/textViewAlamat"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAlamat" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -5,7 +5,55 @@
          <item name="colorPrimary">@color/green</item>
          <item name="colorPrimaryVariant">@color/green</item>
          <item name="android:statusBarColor">@color/green</item>
+
+
+
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+
+        Secondary brand color.
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <!-- Status bar color. -->
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/primaryTextColor</item>
+
     </style>
+
+    <style name="Text">
+        <item name="fontFamily">@font/calibri</item>
+        <item name="android:textColor">@color/primaryDarkColor</item>
+    </style>
+    <style name="Text.Title">
+        <item name="fontFamily">@font/playfairdisplay_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Header">
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Body">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text.Body.SemiBold">
+        <item name="fontFamily">@font/inter_semibold</item>
+    </style>
+    <style name="Text.Medium">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Text.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Text.ExtraSmall">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="CustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    
 
     <style name="Theme.LoginSQLiteKotlin" parent="Base.Theme.LoginSQLiteKotlin" />
 </resources>

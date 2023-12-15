@@ -3,4 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#E91E1E</color>
+    <color name="primaryColor">#5b3f36</color>
+    <color name="primaryLightColor">#896a60</color>
+    <color name="primaryDarkColor">#301810</color>
+    <color name="secondaryColor">#ffa726</color>
+    <color name="secondaryLightColor">#ffd95b</color>
+    <color name="secondaryDarkColor">#c77800</color>
+    <color name="backgroundColor">#f9f3ee</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="primaryRed">#EC1B21</color>
+
 </resources>
