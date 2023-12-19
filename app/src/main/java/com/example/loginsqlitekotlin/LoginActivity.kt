@@ -11,7 +11,9 @@ import kotlin.math.log
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var penggunaController: PenggunaController
+    private lateinit var warungController: WarungController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +21,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        databaseHelper = DatabaseHelper(this)
+        penggunaController = PenggunaController(this)
+        warungController = WarungController(this)
 
         binding.loginButton.setOnClickListener{
             Log.v("DEBUGGING", "LOGIN BUTTON")
@@ -38,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginDatabase(username: String, password: String) {
-        val userExist = databaseHelper.readUser(username, password)
+        val userExist = penggunaController.readUser(username, password)
         if (userExist){
             Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)

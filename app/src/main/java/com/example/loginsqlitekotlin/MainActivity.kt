@@ -6,12 +6,26 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.loginsqlitekotlin.databinding.ActivityMainBinding
+import com.example.loginsqlitekotlin.model.WarungModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var rvWarungs: RecyclerView
+    private var listWarungs = ArrayList<WarungModel>()
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var warungController: WarungController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        warungController = WarungController(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+
 
         val burjoHolicCard: CardView = findViewById(R.id.cardView13)
         burjoHolicCard.setOnClickListener(this)
@@ -27,6 +41,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val AlifButton2: Button = findViewById(R.id.alif_button_2)
         AlifButton2.setOnClickListener(this)
+
+        listWarungs.addAll(warungController.readWarung())
+        rvWarungs = findViewById(R.id.rvWarungs)
+        rvWarungs.setHasFixedSize(true)
+        rvWarungs.setLayoutManager(LinearLayoutManager(this))
+        val listWarungAdapter = ListWarungAdapter(listWarungs)
+        rvWarungs.setAdapter(listWarungAdapter)
     }
 
     override fun onClick(view: View?) {

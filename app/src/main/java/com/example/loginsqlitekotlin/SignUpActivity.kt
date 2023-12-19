@@ -9,14 +9,14 @@ import com.example.loginsqlitekotlin.databinding.ActivitySignUpBinding
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var penggunaController: PenggunaController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        databaseHelper = DatabaseHelper(this)
+        penggunaController = PenggunaController(this)
 
         binding.signupButton.setOnClickListener{
             val signupUsername = binding.signupUsername.text.toString()
@@ -32,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signUpDatabase(username: String, password: String) {
-       val insertedRow = databaseHelper.insertUser(username, password)
+       val insertedRow = penggunaController.insertUser(username, password)
         if (insertedRow != -1L){
             Toast.makeText(this, "Sign Up Success", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, LoginActivity::class.java)
