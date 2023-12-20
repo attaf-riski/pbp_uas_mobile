@@ -1,9 +1,12 @@
 package com.example.loginsqlitekotlin
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,16 +19,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var listWarungs = ArrayList<WarungModel>()
     private lateinit var binding: ActivityMainBinding
     private lateinit var warungController: WarungController
-
+    private lateinit var penggunaController: PenggunaController
+    private lateinit var sharedpreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         warungController = WarungController(this)
+        penggunaController = PenggunaController(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
+        val namaPengguna : TextView = findViewById(R.id.namaPengguna)
+        sharedpreferences = getSharedPreferences(LoginActivity.SHARED_PREFS, MODE_PRIVATE)
+        val id = sharedpreferences.getInt(LoginActivity.ID_KEY, 0)
+        val pengguna = penggunaController.getUserById(id)
 
+        namaPengguna.text = pengguna.getNamaPengguna();
 
         val burjoHolicCard: CardView = findViewById(R.id.cardView13)
         burjoHolicCard.setOnClickListener(this)
@@ -41,6 +51,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val AlifButton2: Button = findViewById(R.id.alif_button_2)
         AlifButton2.setOnClickListener(this)
+
+        val EditProfile: Button = findViewById(R.id.editProfile)
+        EditProfile.setOnClickListener(this)
 
         listWarungs.addAll(warungController.readWarung())
         rvWarungs = findViewById(R.id.rvWarungs)
@@ -72,6 +85,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.alif_button_2 -> {
                     val alifIntent2 = Intent(this, CrudRole::class.java)
                     startActivity(alifIntent2)
+                }
+                R.id.editProfile -> {
+                    val editProfileIntent = Intent(this, EditPengguna::class.java)
+                    startActivity(editProfileIntent)
                 }
             }
         }

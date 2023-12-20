@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.loginsqlitekotlin.model.PenggunaModel
 
 class PenggunaController(private val context: Context):
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
@@ -67,14 +68,27 @@ class PenggunaController(private val context: Context):
         return db.insert(TABLE_NAME, null, values)
     }
 
-    fun readUser(username: String, password: String): Boolean {
+    fun readUser(username: String, password: String): PenggunaModel{
         val db = readableDatabase
         val selection = "$COLUMN_USERNAME = ? AND $COLUMN_PASSWORD = ?"
         val selectionArgs = arrayOf(username, password)
         val cursor = db.query(TABLE_NAME,null,selection,selectionArgs, null, null,null)
-        val userExist = cursor.count > 0;
+        if (cursor.moveToFirst()){
+            do {
+                if (cursor != null){
+                    val idpengguna = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+                    val username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME))
+                    val password = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD))
+                    val namaPengguna = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAMA_PENGGUNA))
+                    val role = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ROLE))
+                    val status = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS))
+                    val foto = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMAGE))
+                    return PenggunaModel(idpengguna, username, password, namaPengguna, role, status, foto)
+                }
+            } while (cursor.moveToNext())
+        }
         cursor.close()
-        return userExist;
+        return PenggunaModel(0, "", "", "", 0, "", "")
     }
 
     fun editUser(id: Int, username: String, password: String, namaPengguna: String, role: Int, status: String, foto: String):Int {
@@ -88,5 +102,28 @@ class PenggunaController(private val context: Context):
         }
         val db = this.writableDatabase
         return db.update(TABLE_NAME, values, "$COLUMN_ID = ?", arrayOf(id.toString()))
+    }
+
+    fun getUserById(id: Int): PenggunaModel{
+        val db = readableDatabase
+        val selection = "$COLUMN_ID = ?"
+        val selectionArgs = arrayOf(id.toString())
+        val cursor = db.query(TABLE_NAME,null,selection,selectionArgs, null, null,null)
+        if (cursor.moveToFirst()){
+            do {
+                if (cursor != null){
+                    val idpengguna = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+                    val username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME))
+                    val password = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD))
+                    val namaPengguna = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAMA_PENGGUNA))
+                    val role = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ROLE))
+                    val status = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS))
+                    val foto = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMAGE))
+                    return PenggunaModel(idpengguna, username, password, namaPengguna, role, status, foto)
+                }
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return PenggunaModel(0, "", "", "", 0, "", "")
     }
 }

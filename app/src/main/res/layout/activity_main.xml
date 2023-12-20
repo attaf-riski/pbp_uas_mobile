@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/namaPengguna"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -66,8 +66,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:scrollbars="none"
                 android:contentDescription="View Makan"
+                android:scrollbars="none"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/circleImageView1">
 
@@ -80,22 +80,22 @@
                         android:id="@+id/warmindomukhlish1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
                         android:src="@drawable/warmindotaf" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
                         android:src="@drawable/warmindojava" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
                         android:src="@drawable/warmindotomas" />
 
 
@@ -114,59 +114,59 @@
                 app:layout_constraintStart_toStartOf="@+id/circleImageView1"
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
-<!--            <androidx.cardview.widget.CardView-->
-<!--                android:id="@+id/cardView11"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                app:cardCornerRadius="4dp"-->
-<!--                app:cardUseCompatPadding="true"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView5">-->
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:id="@+id/cardView11"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="16dp"-->
+            <!--                android:layout_marginTop="16dp"-->
+            <!--                android:layout_marginEnd="10dp"-->
+            <!--                app:cardCornerRadius="4dp"-->
+            <!--                app:cardUseCompatPadding="true"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/textView5">-->
 
-<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="16dp">-->
-<!--                    -->
-<!--                    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                        android:id="@+id/circleImageView2"-->
-<!--                        android:layout_width="50dp"-->
-<!--                        android:layout_height="50dp"-->
-<!--                        android:layout_marginTop="8dp"-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:src="@drawable/pa_aris"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+            <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:padding="16dp">-->
+            <!--                    -->
+            <!--                    <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                        android:id="@+id/circleImageView2"-->
+            <!--                        android:layout_width="50dp"-->
+            <!--                        android:layout_height="50dp"-->
+            <!--                        android:layout_marginTop="8dp"-->
+            <!--                        android:layout_marginEnd="8dp"-->
+            <!--                        android:src="@drawable/pa_aris"-->
+            <!--                        app:layout_constraintStart_toStartOf="parent"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/text_user_name"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="24dp"-->
-<!--                        android:fontFamily="@font/calibri"-->
-<!--                        android:text="Burjo Holic 6"-->
-<!--                        android:textSize="16sp"-->
-<!--                        app:layout_constraintStart_toEndOf="@+id/circleImageView2"-->
-<!--                        app:layout_constraintTop_toTopOf="@+id/circleImageView2" />-->
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/text_user_name"-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="24dp"-->
+            <!--                        android:fontFamily="@font/calibri"-->
+            <!--                        android:text="Burjo Holic 6"-->
+            <!--                        android:textSize="16sp"-->
+            <!--                        app:layout_constraintStart_toEndOf="@+id/circleImageView2"-->
+            <!--                        app:layout_constraintTop_toTopOf="@+id/circleImageView2" />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/text_date"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginTop="4dp"-->
-<!--                        android:fontFamily="@font/calibri"-->
-<!--                        android:text="Jalan Mulawarman "-->
-<!--                        android:textColor="#757F8C"-->
-<!--                        app:layout_constraintStart_toStartOf="@+id/text_user_name"-->
-<!--                        app:layout_constraintTop_toBottomOf="@+id/text_user_name" />-->
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/text_date"-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="4dp"-->
+            <!--                        android:fontFamily="@font/calibri"-->
+            <!--                        android:text="Jalan Mulawarman "-->
+            <!--                        android:textColor="#757F8C"-->
+            <!--                        app:layout_constraintStart_toStartOf="@+id/text_user_name"-->
+            <!--                        app:layout_constraintTop_toBottomOf="@+id/text_user_name" />-->
 
-<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-<!--            </androidx.cardview.widget.CardView>-->
+            <!--            </androidx.cardview.widget.CardView>-->
 
 
             <androidx.cardview.widget.CardView
@@ -365,6 +365,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView15" />
+
+            <Button
+                android:id="@+id/editProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:text="Edit Profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
