@@ -78,6 +78,19 @@ class PenggunaController(private val context: Context):
         return db.insert(TABLE_NAME, null, values)
     }
 
+    fun insertUser2(username: String, password: String, name: String, role: Int, status: String, foto: String):Long {
+        val values = ContentValues().apply {
+            put(COLUMN_USERNAME, username)
+            put(COLUMN_PASSWORD, password)
+            put(COLUMN_NAMA_PENGGUNA, name)
+            put(COLUMN_ROLE, role)
+            put(COLUMN_STATUS, status)
+            put(COLUMN_IMAGE, "")
+        }
+        val db = this.writableDatabase
+        return db.insert(TABLE_NAME, null, values)
+    }
+
     fun readUser(username: String, password: String): PenggunaModel{
         val db = readableDatabase
         val selection = "$COLUMN_USERNAME = ? AND $COLUMN_PASSWORD = ?"

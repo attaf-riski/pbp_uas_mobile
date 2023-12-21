@@ -15,18 +15,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <EditText
-        android:id="@+id/et_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ID"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+
     <EditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
-        app:layout_constraintTop_toBottomOf="@+id/et_id" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
@@ -69,8 +64,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_foto" />
 
-    <ListView
-        android:id="@+id/lv_list_pengguna"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Rv_list_pengguna"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
