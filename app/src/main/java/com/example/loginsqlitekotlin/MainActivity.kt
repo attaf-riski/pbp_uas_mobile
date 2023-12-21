@@ -37,15 +37,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         namaPengguna.text = pengguna.getNamaPengguna();
 
-        val burjoHolicCard: CardView = findViewById(R.id.cardView13)
-        burjoHolicCard.setOnClickListener(this)
-
-        val vanJavaCard: CardView = findViewById(R.id.cardView14)
-        vanJavaCard.setOnClickListener(this)
-
-        val tomasCard: CardView = findViewById(R.id.cardView15)
-        tomasCard.setOnClickListener(this)
-
         val AlifButton: Button = findViewById(R.id.alif_button)
         AlifButton.setOnClickListener(this)
 
@@ -56,28 +47,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         EditProfile.setOnClickListener(this)
 
         listWarungs.addAll(warungController.readWarung())
+        Log.d("Bangke", "listWarungs: ${listWarungs.size}")
         rvWarungs = findViewById(R.id.rvWarungs)
         rvWarungs.setHasFixedSize(true)
         rvWarungs.setLayoutManager(LinearLayoutManager(this))
         val listWarungAdapter = ListWarungAdapter(listWarungs)
         rvWarungs.setAdapter(listWarungAdapter)
+
+//        tambah warung
+        val tambahWarungButton: Button = findViewById(R.id.tambahWarung)
+        tambahWarungButton.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         if (view != null) {
             when (view.id) {
-                R.id.cardView13 -> {
-                    val holicIntent = Intent(this, HolicActivity::class.java)
-                    startActivity(holicIntent)
-                }
-                R.id.cardView14 -> {
-                    val vanJavaIntent = Intent(this, VanJavaActivity::class.java)
-                    startActivity(vanJavaIntent)
-                }
-                R.id.cardView15 -> {
-                    val tomasIntent = Intent(this, TomasActivity::class.java)
-                    startActivity(tomasIntent)
-                }
                 R.id.alif_button -> {
                     val alifIntent = Intent(this, CrudPengguna::class.java)
                     startActivity(alifIntent)
@@ -89,6 +73,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.editProfile -> {
                     val editProfileIntent = Intent(this, EditPengguna::class.java)
                     startActivity(editProfileIntent)
+                }
+                R.id.tambahWarung -> {
+                    val tambahWarungIntent = Intent(this, addwarung::class.java)
+                    startActivity(tambahWarungIntent)
                 }
             }
         }

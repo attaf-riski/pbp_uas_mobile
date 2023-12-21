@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutCabang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/textTambahWarung"
+            style="@style/Text.Title"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:text="Tambah Warung"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Button -->
+
+    <!-- ImageView for Profile Picture -->
+    <EditText
+        android:id="@+id/editTextWarung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/constraintLayoutCabang"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Nama Warung"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/editTextIdWarung"
+        app:layout_constraintStart_toStartOf="@+id/editTextIdWarung"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdWarung" />
+
+    <ImageView
+        android:id="@+id/imageViewProfile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/editTextWarung"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/warmindojava"
+        android:scaleType="centerCrop"/>
+
+    <!-- Upload Gambar -->
+    <Button
+        android:id="@+id/btnUploadFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewProfile"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="Upload Gambar"
+        android:onClick="onUploadButtonClick"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_button_primary"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

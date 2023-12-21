@@ -54,13 +54,22 @@ class LoginActivity : AppCompatActivity() {
         editor.putString(NAMA_KEY, userExist?.getNamaPengguna())
         editor.putInt(ID_KEY, userExist?.getIdPengguna()!!)
         editor.apply()
+        Log.v("Debugging",userExist.toString())
 
+        if (userExist.getIdRole() != 0) {
+            if(userExist.getIdRole() == 1){
+                Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else if(userExist.getIdRole() == 2){
+                Toast.makeText(this, "Login Success as Cashier", Toast.LENGTH_SHORT).show()
 
-        if (userExist != null) {
-            Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            }else if(userExist.getIdRole() == 3){
+                Toast.makeText(this, "Login Success as Currier", Toast.LENGTH_SHORT).show()
+            }else if(userExist.getIdRole() == 4){
+                Toast.makeText(this, "Login Success as Chef", Toast.LENGTH_SHORT).show()
+            }
 
         } else {
             Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()

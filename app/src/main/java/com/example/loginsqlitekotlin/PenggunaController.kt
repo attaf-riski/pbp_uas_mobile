@@ -26,6 +26,11 @@ class PenggunaController(private val context: Context):
         const val COLUMN_NAMA_WARUNG = "namawarung"
         const val COLUMN_LOGO_WARUNG = "logo"
         const val COLUMN_GAMBAR_WARUNG = "gambar"
+        //        role
+        const val TABLE_NAME_ROLE = "role"
+        const val COLUMN_ID_ROLE = "idrole"
+        const val COLUMN_ROLE_ROLE = "role"
+        const val COLUMN_STATUS_ROLE = "status"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -44,8 +49,13 @@ class PenggunaController(private val context: Context):
                 "${COLUMN_LOGO_WARUNG} TEXT," +
                 "${COLUMN_GAMBAR_WARUNG} TEXT)"
 
-        db?.execSQL(createTableQuery2)
+        val createTableQuery3 = "CREATE TABLE ${TABLE_NAME_ROLE} (" +
+                "${COLUMN_ID_ROLE} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${COLUMN_ROLE_ROLE} TEXT," +
+                "${COLUMN_STATUS_ROLE} TEXT)"
 
+        db?.execSQL(createTableQuery3)
+        db?.execSQL(createTableQuery2)
         db?.execSQL(createTableQuery)
     }
 
@@ -100,7 +110,7 @@ class PenggunaController(private val context: Context):
             put(COLUMN_STATUS, status)
             put(COLUMN_IMAGE, foto)
         }
-        val db = this.writableDatabase
+        val db = writableDatabase
         return db.update(TABLE_NAME, values, "$COLUMN_ID = ?", arrayOf(id.toString()))
     }
 

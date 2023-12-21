@@ -169,172 +169,14 @@
             <!--            </androidx.cardview.widget.CardView>-->
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView13"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/tambahWarung"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="tambah warung"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:padding="16dp">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circleImageView3"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:src="@drawable/pa_aris"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_user_name1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:fontFamily="@font/calibri"
-                        android:text="Burjo Holic 6"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/circleImageView3"
-                        app:layout_constraintTop_toTopOf="@+id/circleImageView3" />
-
-
-                    <TextView
-                        android:id="@+id/text_date1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/calibri"
-                        android:text="Jalan Mulawarman"
-                        android:textColor="#757F8C"
-                        app:layout_constraintStart_toStartOf="@+id/text_user_name1"
-                        app:layout_constraintTop_toBottomOf="@+id/text_user_name1" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView13">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circleImageView4"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:src="@drawable/pa_aris"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_user_name2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:fontFamily="@font/calibri"
-                        android:text="Warmindo Van Java"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/circleImageView4"
-                        app:layout_constraintTop_toTopOf="@+id/circleImageView4" />
-
-
-                    <TextView
-                        android:id="@+id/text_date2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/calibri"
-                        android:text="Jalan Durian Raya"
-                        android:textColor="#757F8C"
-                        app:layout_constraintStart_toStartOf="@+id/text_user_name2"
-                        app:layout_constraintTop_toBottomOf="@+id/text_user_name2" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView14">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circleImageView5"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:src="@drawable/pa_aris"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_user_name3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:fontFamily="@font/calibri"
-                        android:text="Warmindo Tomas"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/circleImageView5"
-                        app:layout_constraintTop_toTopOf="@+id/circleImageView5" />
-
-
-                    <TextView
-                        android:id="@+id/text_date3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/calibri"
-                        android:text="Jalan Banjarsari"
-                        android:textColor="#757F8C"
-                        app:layout_constraintStart_toStartOf="@+id/text_user_name3"
-                        app:layout_constraintTop_toBottomOf="@+id/text_user_name3" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <Button
                 android:id="@+id/alif_button"
@@ -358,13 +200,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvWarungs"
-                android:layout_width="18dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/alif_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView15" />
+                app:layout_constraintTop_toBottomOf="@+id/tambahWarung" />
 
             <Button
                 android:id="@+id/editProfile"

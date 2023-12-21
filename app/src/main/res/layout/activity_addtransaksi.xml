@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.tomas.TomasInfo">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/textViewTambahTransaksi"
+                style="@style/Text.Title"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:text="Tambah Transaksi"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.5" />
+
+            <EditText
+                android:id="@+id/editTextNamaPengguna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Nama Pelanggan"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/textViewTambahTransaksi"
+                app:layout_constraintStart_toStartOf="@+id/textViewTambahTransaksi"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTambahTransaksi" />
+
+            <EditText
+                android:id="@+id/editTextTanggal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Tanggal"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/editTextNamaPengguna"
+                app:layout_constraintStart_toStartOf="@+id/editTextNamaPengguna"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNamaPengguna" />
+
+            <EditText
+                android:id="@+id/editTextWaktu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Waktu"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTanggal"
+                app:layout_constraintStart_toStartOf="@+id/editTextTanggal"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTanggal" />
+
+            <EditText
+                android:id="@+id/editTextStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Status"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/editTextWaktu"
+                app:layout_constraintStart_toStartOf="@+id/editTextWaktu"
+                app:layout_constraintTop_toBottomOf="@+id/editTextWaktu" />
+
+            <EditText
+                android:id="@+id/editTextTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Total Harga"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/editTextStatus"
+                app:layout_constraintStart_toStartOf="@+id/editTextStatus"
+                app:layout_constraintTop_toBottomOf="@+id/editTextStatus" />
+
+            <EditText
+                android:id="@+id/editTextMetode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Metode Pembayaran"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTotal"
+                app:layout_constraintStart_toStartOf="@+id/editTextTotal"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTotal" />
+
+            <EditText
+                android:id="@+id/editTextDiskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Diskon Potongan Harga"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/editTextMetode"
+                app:layout_constraintStart_toStartOf="@+id/editTextMetode"
+                app:layout_constraintTop_toBottomOf="@+id/editTextMetode" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_button_primary"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
