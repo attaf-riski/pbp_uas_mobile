@@ -1,6 +1,5 @@
 package com.example.loginsqlitekotlin
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,8 +21,6 @@ class ListRoleAdapter(private val roleList: ArrayList<RoleModel>) : RecyclerView
         var btDelete: ImageButton = itemView.findViewById(R.id.bt_delete)
         var roleController: RoleController
 
-
-
         init {
             tvId = itemView.findViewById(R.id.tv_id)
             tvRole = itemView.findViewById(R.id.tv_role)
@@ -39,8 +36,6 @@ class ListRoleAdapter(private val roleList: ArrayList<RoleModel>) : RecyclerView
             R.layout.item_role,
             parent, false
         )
-
-        roleController = RoleController(parent.context)
         return ListViewHolder(view)
     }
 
@@ -60,7 +55,6 @@ class ListRoleAdapter(private val roleList: ArrayList<RoleModel>) : RecyclerView
         holder.btDelete.setOnClickListener {
             val id = roleModel.getIdRole()
             val delete = roleController.deleteRole(id)
-            Log.v("DEBUGGING", "DELETE BUTTON")
             if (delete != 1L) {
                 Toast.makeText(holder.itemView.context, "Role deleted successfully", Toast.LENGTH_SHORT).show()
             } else {
