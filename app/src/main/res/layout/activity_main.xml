@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/calibri"
-                android:text="Krisye"
+                android:text="Kolak"
                 android:textColor="#171D33"
                 android:textSize="28sp"
                 android:textStyle="bold"
@@ -56,7 +56,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:src="@drawable/pa_aris"
+                android:src="@drawable/kolak"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -184,19 +184,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="Manajemen Pengguna"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/alif_button_2"
                 app:layout_constraintTop_toBottomOf="@+id/rvWarungs" />
 
             <Button
                 android:id="@+id/alif_button_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:text="Manajemen Role"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alif_button" />
+                app:layout_constraintTop_toBottomOf="@id/rvWarungs"
+                app:layout_constraintStart_toEndOf="@+id/alif_button"
+                />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvWarungs"
