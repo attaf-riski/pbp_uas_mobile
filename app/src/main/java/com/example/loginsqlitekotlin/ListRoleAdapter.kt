@@ -54,7 +54,7 @@ class ListRoleAdapter(private val roleList: ArrayList<RoleModel>) : RecyclerView
 
         holder.btDelete.setOnClickListener {
             val id = roleModel.getIdRole()
-            val delete = roleController.deleteRole(id)
+            val delete = holder.roleController.deleteRole(id)
             if (delete != 1L) {
                 Toast.makeText(holder.itemView.context, "Role deleted successfully", Toast.LENGTH_SHORT).show()
             } else {
