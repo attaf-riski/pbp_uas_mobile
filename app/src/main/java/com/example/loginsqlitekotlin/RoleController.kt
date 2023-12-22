@@ -63,6 +63,25 @@ class RoleController(private val context: Context):
         return RoleModel(0, "", "")
     }
 
+    fun readRole2(): ArrayList<RoleModel> {
+        val roleList = ArrayList<RoleModel>()
+        val db = readableDatabase
+        val query = "SELECT * FROM ${RoleController.TABLE_NAME}"
+        val cursor = db.rawQuery(query, null)
+        if (cursor.moveToFirst()){
+            do {
+                if (cursor != null){
+                    val idrole = cursor.getInt(cursor.getColumnIndexOrThrow(RoleController.COLUMN_ID))
+                    val role = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ROLE))
+                    val status = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS))
+                    roleList.add(RoleModel(idrole,role,status))
+                }
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return roleList
+    }
+
     fun editRole(id: Int, role: Int, status: String):Int {
         val db = this.writableDatabase
         val values = ContentValues().apply {
@@ -93,5 +112,11 @@ class RoleController(private val context: Context):
         }
         cursor.close()
         return RoleModel(0, "", "")
+    }
+    fun deleteRole(idrole: Int): Any{
+        val db = this.writableDatabase
+        val selection = "$COLUMN_ID = ?"
+        val selectionArgs = arrayOf(idrole.toString())
+        return db.delete(PenggunaController.TABLE_NAME, selection, selectionArgs)
     }
 }

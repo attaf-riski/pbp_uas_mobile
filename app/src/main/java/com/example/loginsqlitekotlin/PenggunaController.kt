@@ -5,13 +5,16 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.loginsqlitekotlin.model.PenggunaModel
+import com.example.loginsqlitekotlin.model.WarungModel
 
 class PenggunaController(private val context: Context):
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
     companion object {
+
+
         const val DATABASE_NAME = "UserDatabase.db"
         const val DATABASE_VERSION = 2
-//        pengguna
+        //        pengguna
         const val TABLE_NAME = "Pengguna"
         const val COLUMN_ID = "idpengguna"
         const val COLUMN_USERNAME = "username"
@@ -20,7 +23,7 @@ class PenggunaController(private val context: Context):
         const val COLUMN_ROLE = "idrole"
         const val COLUMN_STATUS = "status"
         const val COLUMN_IMAGE = "foto"
-//        warung
+        //        warung
         const val TABLE_NAME_WARUNG = "Warung"
         const val COLUMN_ID_WARUNG = "idwarung"
         const val COLUMN_NAMA_WARUNG = "namawarung"
@@ -114,6 +117,29 @@ class PenggunaController(private val context: Context):
         return PenggunaModel(0, "", "", "", 0, "", "")
     }
 
+    fun readUser2(): ArrayList<PenggunaModel> {
+        val UserList = ArrayList<PenggunaModel>()
+        val db = readableDatabase
+        val query = "SELECT * FROM ${PenggunaController.TABLE_NAME}"
+        val cursor = db.rawQuery(query, null)
+        if (cursor.moveToFirst()){
+            do {
+                if (cursor != null){
+                    val idpengguna = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+                    val username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME))
+                    val password = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD))
+                    val namaPengguna = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAMA_PENGGUNA))
+                    val role = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ROLE))
+                    val status = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS))
+                    val foto = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMAGE))
+                    UserList.add(PenggunaModel(idpengguna, username, password, namaPengguna, role, status, foto))
+                }
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return UserList
+    }
+
     fun editUser(id: Int, username: String, password: String, namaPengguna: String, role: Int, status: String, foto: String):Int {
         val values = ContentValues().apply {
             put(COLUMN_USERNAME, username)
@@ -148,5 +174,13 @@ class PenggunaController(private val context: Context):
         }
         cursor.close()
         return PenggunaModel(0, "", "", "", 0, "", "")
+    }
+
+
+    fun deleteUser(idpengguna: Int): Any{
+        val db = this.writableDatabase
+        val selection = "$COLUMN_ID = ?"
+        val selectionArgs = arrayOf(idpengguna.toString())
+        return db.delete(PenggunaController.TABLE_NAME, selection, selectionArgs)
     }
 }

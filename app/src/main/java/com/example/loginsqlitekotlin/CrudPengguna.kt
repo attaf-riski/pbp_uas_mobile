@@ -4,12 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.loginsqlitekotlin.databinding.ActivityCrudPenggunaBinding
 import com.example.loginsqlitekotlin.databinding.ActivityCrudRoleBinding
+import com.example.loginsqlitekotlin.model.PenggunaModel
+import com.example.loginsqlitekotlin.model.WarungModel
 
 class CrudPengguna : AppCompatActivity() {
     private lateinit var binding: ActivityCrudPenggunaBinding
     private lateinit var PenggunaController: PenggunaController
+
+    private lateinit var rvUser: RecyclerView
+    private var listUser = ArrayList<PenggunaModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,15 +39,23 @@ class CrudPengguna : AppCompatActivity() {
             Log.v("DEBUGGING", "ADD BUTTON")
         }
 
+        listUser.addAll(PenggunaController.readUser2())
+        rvUser = findViewById(R.id.rv_list_pengguna)
+        rvUser.setHasFixedSize(true)
+        rvUser.setLayoutManager(LinearLayoutManager(this))
+        val listUserAdapter = ListUserAdapter(listUser)
+        rvUser.setAdapter(listUserAdapter)
+
 
     }
 
     private fun insertUser2(username: String, password: String, name: String, role: Int, status: String, foto: String) {
         val insertUser = PenggunaController.insertUser2(username, password, name, role, status, foto)
         if (insertUser != 1L){
-            Toast.makeText( this,"berhasil menambahkan role", Toast.LENGTH_SHORT).show()
+            Toast.makeText( this,"berhasil menambahkan user", Toast.LENGTH_SHORT).show()
         }else{
-            Toast.makeText( this,"gagal menambahkan role", Toast.LENGTH_SHORT).show()
+            Toast.makeText( this,"gagal menambahkan user", Toast.LENGTH_SHORT).show()
         }
     }
 }
+

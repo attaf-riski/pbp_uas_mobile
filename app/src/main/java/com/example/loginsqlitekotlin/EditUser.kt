@@ -1,18 +1,16 @@
 package com.example.loginsqlitekotlin
 
 import android.content.Intent
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loginsqlitekotlin.databinding.ActivityEditPenggunaBinding
 
-class EditPengguna : AppCompatActivity(), View.OnClickListener {
+class EditUser : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var sharedpreferences: SharedPreferences
     private lateinit var penggunaController: PenggunaController
     private lateinit var binding: ActivityEditPenggunaBinding
 
@@ -25,28 +23,30 @@ class EditPengguna : AppCompatActivity(), View.OnClickListener {
     private lateinit var etFoto: EditText
     private lateinit var buttonEdit: Button
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditPenggunaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedpreferences = getSharedPreferences(LoginActivity.SHARED_PREFS, MODE_PRIVATE)
-        val idPengguna = sharedpreferences.getInt(LoginActivity.ID_KEY, 0)
-
-        etId = findViewById<EditText>(R.id.et_id)
-        etUsername = findViewById<EditText>(R.id.et_username)
-        etPassword = findViewById<EditText>(R.id.et_password)
-        etNamaPengguna = findViewById<EditText>(R.id.et_nama)
-        etIdRole = findViewById<EditText>(R.id.et_role)
-        etStatus = findViewById<EditText>(R.id.et_status)
-        etFoto = findViewById<EditText>(R.id.et_foto)
-        buttonEdit = findViewById<Button>(R.id.bt_edit)
-        buttonEdit.setOnClickListener(this);
-
         penggunaController = PenggunaController(this)
-        val pengguna = penggunaController.getUserById(idPengguna)
 
+        etId = findViewById(R.id.et_id)
+        etUsername = findViewById(R.id.et_username)
+        etPassword = findViewById(R.id.et_password)
+        etNamaPengguna = findViewById(R.id.et_nama)
+        etIdRole = findViewById(R.id.et_role)
+        etStatus = findViewById(R.id.et_status)
+        etFoto = findViewById(R.id.et_foto)
+        buttonEdit = findViewById(R.id.bt_edit)
+        buttonEdit.setOnClickListener(this)
+
+        // Retrieve user ID from intent
+        val userId = intent.getIntExtra("USER_ID", 0)
+
+        // Fetch user details using the ID
+        val pengguna = penggunaController.getUserById(userId)
+
+        // Populate EditText fields with user details
         etId.setText(pengguna.getIdPengguna().toString())
         etUsername.setText(pengguna.getUsername())
         etPassword.setText(pengguna.getPassword())
@@ -70,12 +70,13 @@ class EditPengguna : AppCompatActivity(), View.OnClickListener {
 
                     val result = penggunaController.editUser(id, username, password, namaPengguna, idRole, status, foto)
 
-                    if(result > 0){
+                    if (result > 0) {
                         Toast.makeText(this, "Edit Pengguna Berhasil", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
+                    } else {
+                        Toast.makeText(this, "Gagal mengedit pengguna", Toast.LENGTH_SHORT).show()
                     }
-
                 }
             }
         }

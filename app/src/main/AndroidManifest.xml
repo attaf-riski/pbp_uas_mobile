@@ -40,6 +40,9 @@
             android:name=".EditPengguna"
             android:exported="false" />
         <activity
+            android:name=".EditUser"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true" >
             <intent-filter>

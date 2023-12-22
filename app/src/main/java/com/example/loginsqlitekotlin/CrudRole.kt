@@ -1,19 +1,22 @@
 package com.example.loginsqlitekotlin
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.loginsqlitekotlin.databinding.ActivityCrudRoleBinding
-import com.example.loginsqlitekotlin.databinding.ActivityLoginBinding
+import com.example.loginsqlitekotlin.model.RoleModel
 
 
 class CrudRole : AppCompatActivity() {
 
     private lateinit var binding: ActivityCrudRoleBinding
     private lateinit var RoleController: RoleController
+
+    private lateinit var rvRole: RecyclerView
+    private var listRole = ArrayList<RoleModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,13 @@ class CrudRole : AppCompatActivity() {
             insertRole(role, status)
             Log.v("DEBUGGING", "ADD BUTTON")
         }
+
+        listRole.addAll(RoleController.readRole2())
+        rvRole = findViewById(R.id.rv_list_role)
+        rvRole.setHasFixedSize(true)
+        rvRole.setLayoutManager(LinearLayoutManager(this))
+        val listRoleAdapter = ListRoleAdapter(listRole)
+        rvRole.setAdapter(listRoleAdapter)
 
 
     }

@@ -38,8 +38,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_status" />
 
-    <ListView
-        android:id="@+id/lv_list_role"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_role"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
