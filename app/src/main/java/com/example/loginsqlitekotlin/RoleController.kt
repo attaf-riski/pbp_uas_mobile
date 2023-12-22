@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import com.example.loginsqlitekotlin.model.PenggunaModel
 import com.example.loginsqlitekotlin.model.RoleModel
 class RoleController(private val context: Context):
@@ -82,7 +83,7 @@ class RoleController(private val context: Context):
         return roleList
     }
 
-    fun editRole(id: Int, role: Int, status: String):Int {
+    fun editRole(id: Int, role: String, status: String):Int {
         val db = this.writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_ROLE, role)
@@ -117,6 +118,8 @@ class RoleController(private val context: Context):
         val db = this.writableDatabase
         val selection = "$COLUMN_ID = ?"
         val selectionArgs = arrayOf(idrole.toString())
-        return db.delete(PenggunaController.TABLE_NAME, selection, selectionArgs)
+        val result = db.delete(TABLE_NAME, selection, selectionArgs)
+        db.close()
+        return result
     }
 }

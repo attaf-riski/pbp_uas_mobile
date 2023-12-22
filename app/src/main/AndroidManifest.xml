@@ -42,6 +42,8 @@
         <activity
             android:name=".EditUser"
             android:exported="false" />
+        <activity android:name=".EditRole"
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true" >

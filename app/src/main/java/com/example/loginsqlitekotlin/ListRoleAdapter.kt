@@ -1,5 +1,7 @@
 package com.example.loginsqlitekotlin
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +38,7 @@ class ListRoleAdapter(private val roleList: ArrayList<RoleModel>) : RecyclerView
             R.layout.item_role,
             parent, false
         )
+
         return ListViewHolder(view)
     }
 
@@ -46,20 +49,21 @@ class ListRoleAdapter(private val roleList: ArrayList<RoleModel>) : RecyclerView
         holder.tvStatus?.text = roleModel.getStatus()
 
         holder.btEdit.setOnClickListener {
-            // Handle the click for the edit button
-            // You can use the position parameter to get the item associated with this view
-            // For example, roleList[position] would give you the data for the clicked item
-            // Perform the edit action here
+            val id = roleModel.getIdRole()
+            val editIntent = Intent(holder.itemView.context, EditRole::class.java)
+            editIntent.putExtra("USER_ID", id)
+            holder.itemView.context.startActivity(editIntent)
         }
 
         holder.btDelete.setOnClickListener {
             val id = roleModel.getIdRole()
-            val delete = roleController.deleteRole(id)
-            if (delete != 1L) {
-                Toast.makeText(holder.itemView.context, "Role deleted successfully", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(holder.itemView.context, "Failed to delete role", Toast.LENGTH_SHORT).show()
+            val delete = holder.roleController.deleteRole(id)
+            if (delete != -1L){
+                Toast.makeText( holder.itemView.context,"berhasil menghapus role", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText( holder.itemView.context,"gagal menghapus role", Toast.LENGTH_SHORT).show()
             }
+
         }
     }
 
